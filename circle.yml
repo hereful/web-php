@@ -1,0 +1,15 @@
+machine:
+  php:
+    version: 7.0.4
+
+dependencies:
+  pre: 
+      
+deployment:
+  master:
+    branch: master
+    commands:
+      - ssh ubuntu@ssh.hereful.com "cd ~/hereful/web-php && sudo git pull"
+      - >
+        ssh ubuntu@ssh.hereful.com "sudo docker exec -t dockerserver_web_1 bash -c 'cd /var/www/laravel 
+        && php artisan migrate'"
