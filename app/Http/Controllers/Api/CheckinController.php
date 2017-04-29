@@ -16,6 +16,20 @@ class CheckinController extends \App\Http\Controllers\Controller {
             return ['success'=>true];
         }
         
+        if($request->input('check_type')=='message'){
+            $checkin->check_type = 'message';
+            $checkin->data = $request->input('message');
+            $checkin->save();
+            return ['success'=>true];
+        }
+        
+        if($request->input('check_type')=='photo'){
+            $checkin->check_type = 'photo';
+            //$checkin->data = $request->input('message');
+            $checkin->save();
+            return ['success'=>true];
+        }
+        
         return ['nothing'];
     }
     

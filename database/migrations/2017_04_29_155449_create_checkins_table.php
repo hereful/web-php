@@ -18,8 +18,8 @@ class CreateCheckinsTable extends Migration
             $table->string('check_type');
             $table->text('data');
             $table->integer('user_id');
-            $table->string('lat');
-            $table->string('long');
+            $table->double('lat');
+            $table->double('long');
             $table->timestamps();
         });
     }
