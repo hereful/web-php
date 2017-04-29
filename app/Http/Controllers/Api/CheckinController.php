@@ -10,10 +10,12 @@ class CheckinController extends \App\Http\Controllers\Controller {
         $checkin = new \App\Checkin;
         $checkin->lat = $request->input('lat');
         $checkin->long = $request->input('long');
-        if($request->input('checkin_type')=='love'){
-            $checkin->checkin_type = 'love';
+        if($request->input('check_type')=='love'){
+            $checkin->check_type = 'love';
             $checkin->save();
+            return ['success'=>true];
         }
         
+        return ['nothing'];
     }
 }
