@@ -18,4 +18,11 @@ class CheckinController extends \App\Http\Controllers\Controller {
         
         return ['nothing'];
     }
+    
+    public function nearby(Request $request){
+        $checkins = \App\Checkin::where('lat','>',$request->input('lat')-0.001)
+                ->where('lat','<',$request->input('lat')+0.001)
+                ->get();
+        return $checkins;
+    }
 }

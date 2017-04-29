@@ -15,3 +15,4 @@ use Illuminate\Http\Request;
 
 
 Route::post('/checkin', 'Api\CheckinController@checkin');
+Route::get('/nearby', 'Api\CheckinController@nearby');
