@@ -16,3 +16,4 @@ use Illuminate\Http\Request;
 
 Route::post('/checkin', 'Api\CheckinController@checkin');
 Route::post('/nearby', 'Api\CheckinController@nearby');
+Route::post('/bot', 'Api\CheckinController@bot');
