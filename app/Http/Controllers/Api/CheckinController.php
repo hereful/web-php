@@ -56,7 +56,7 @@ class CheckinController extends \App\Http\Controllers\Controller {
             $returnMessage = @file_get_contents('http://qt.gtimg.cn/?q=s_hk'.$stockCode);
         }
         
-        $data = array("chat_id" => $request->input('message.chat.id'), "text" => $command);
+        $data = array("chat_id" => $request->input('message.chat.id'), "text" => "message: ".$command);
         
         $data_string = json_encode($data);
         $ch = curl_init();
