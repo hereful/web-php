@@ -48,10 +48,17 @@ class CheckinController extends \App\Http\Controllers\Controller {
     public function bot(Request $request) {
        
         
+        $command = $request->input('message.text');
+        $commands = explode(' ',$command);
+        $returnMessage = '';
+        if(@$commands[0]=='check' && @$commands[1]){
+            $stockCode = str_pad($commands[1], 5, '0', STR_PAD_LEFT);
+            $returnMessage = @file_get_contents('http://qt.gtimg.cn/?q=s_hk'.$stockCode);
+        }
         
         
         
-        $data = array("chat_id" => $request->input('message.chat.id'), "text" => "test:".@$request->input('message.text'));
+        $data = array("chat_id" => $request->input('message.chat.id'), "text" => $returnMessage);
         $data_string = json_encode($data);
         $ch = curl_init();
 
