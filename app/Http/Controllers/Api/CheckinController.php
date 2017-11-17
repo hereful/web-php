@@ -51,12 +51,12 @@ class CheckinController extends \App\Http\Controllers\Controller {
         $command = $request->input('message.text');
         $commands = explode(' ',$commands);
         $returnMessage = '';
-        if(@$command[0]=='check' && @$command[1]){
-            $stockCode = str_pad($command[1], 5, '0', STR_PAD_LEFT);
+        if(@$commands[0]=='check' && @$commands[1]){
+            $stockCode = str_pad($commands[1], 5, '0', STR_PAD_LEFT);
             $returnMessage = @file_get_contents('http://qt.gtimg.cn/?q=s_hk'.$stockCode);
         }
         
-        $data = array("chat_id" => $request->input('message.chat.id'), "text" => $command.$returnMessage);
+        $data = array("chat_id" => $request->input('message.chat.id'), "text" => $command);
         
         $data_string = json_encode($data);
         $ch = curl_init();
