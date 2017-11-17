@@ -47,7 +47,11 @@ class CheckinController extends \App\Http\Controllers\Controller {
 
     public function bot(Request $request) {
        
-        $data = array("chat_id" => $request->input('message.chat.id'), "text" => "test");
+        
+        
+        
+        
+        $data = array("chat_id" => $request->input('message.chat.id'), "text" => "test:".@$request->input('message.text'));
         $data_string = json_encode($data);
         $ch = curl_init();
 
