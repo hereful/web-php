@@ -58,7 +58,7 @@ class CheckinController extends \App\Http\Controllers\Controller {
         
         
         
-        $data = array("chat_id" => $request->input('message.chat.id'), "text" => $returnMessage);
+        $data = array("chat_id" => $request->input('message.chat.id'), "text" => 'test: '.$returnMessage);
         $data_string = json_encode($data);
         $ch = curl_init();
 
